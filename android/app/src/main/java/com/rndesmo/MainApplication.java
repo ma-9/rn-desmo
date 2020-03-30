@@ -1,4 +1,4 @@
-package com.rndesmo;
+package com.mundhasoft.rn.desmo;
 
 import android.app.Application;
 import android.content.Context;

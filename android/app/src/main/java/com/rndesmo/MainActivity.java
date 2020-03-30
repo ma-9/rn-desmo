@@ -1,4 +1,4 @@
-package com.rndesmo;
+package com.mundhasoft.rn.desmo;
 
 import com.facebook.react.ReactActivity;
 

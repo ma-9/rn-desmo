@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rndesmo"
+        applicationId "com.mundhasoft.rn.desmo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
