@@ -11,8 +11,8 @@ import {
 } from 'react-native';
 import { getDemoList } from '../demo/data';
 
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useTheme, useNavigation } from '@react-navigation/native';
+import { HeaderIconButton } from '@app/components';
 
 const demoList = getDemoList();
 
@@ -23,15 +23,13 @@ const HomeScreen: React.FC = () => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          style={styles.headerRight}
-          onPress={() => navigation.navigate('About')}>
-          <Icon
+        <View>
+          <HeaderIconButton
+            onPress={() => navigation.navigate('About')}
+            font="Ionicons"
             name="ios-information-circle-outline"
-            size={20}
-            color={colors.primary}
           />
-        </TouchableOpacity>
+        </View>
       ),
     });
   }, [colors.primary, navigation]);
@@ -97,9 +95,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 8,
     fontSize: 16,
-  },
-  headerRight: {
-    marginRight: 16,
   },
 });
 

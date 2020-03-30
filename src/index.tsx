@@ -18,11 +18,13 @@ import AboutScreen from './screens/about.screen';
 import DemoScreenList from './screens/demo-list.screen';
 import DemoInfoScreen from './screens/demo-info/demo-info.screen';
 import DemoScreen from './screens/demo.screen';
+import { StatusBar } from 'react-native';
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Stack.Navigator headerMode="screen" initialRouteName="Home">
         <Stack.Screen
           name="Home"

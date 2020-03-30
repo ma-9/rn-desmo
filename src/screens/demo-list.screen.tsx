@@ -17,6 +17,7 @@ import {
   RouteProp,
 } from '@react-navigation/native';
 import { RootStackParamList } from '@app/types';
+import { HeaderIconButton } from '@app/components';
 
 type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'DemoScreenList'>;
 
@@ -28,17 +29,13 @@ const DemoScreenList: React.FC = () => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          style={styles.headerRight}
+        <HeaderIconButton
           onPress={() =>
             navigation.navigate('DemoInfo', { item: route.params.item })
-          }>
-          <Icon
-            name="ios-information-circle-outline"
-            size={20}
-            color={colors.primary}
-          />
-        </TouchableOpacity>
+          }
+          font="Ionicons"
+          name="ios-information-circle-outline"
+        />
       ),
     });
   }, [colors.primary, navigation, route.params.item]);
@@ -110,9 +107,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 8,
     fontSize: 16,
-  },
-  headerRight: {
-    marginRight: 16,
   },
 });
 

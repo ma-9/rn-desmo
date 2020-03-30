@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Linking } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableItem } from '@app/components';
 
 interface IProps {
   title: string;
@@ -17,14 +17,14 @@ const ReferenceItem: React.FC<IProps> = ({ title, link }) => {
   };
 
   return (
-    <TouchableOpacity onPress={handlePress}>
+    <TouchableItem onPress={handlePress}>
       <View style={styles.root}>
         <View style={styles.itemStyles}>
           <Text style={styles.primaryText}>{title}</Text>
           <Text style={styles.secondaryText}>{link}</Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </TouchableItem>
   );
 };
 

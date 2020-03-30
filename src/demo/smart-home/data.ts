@@ -5,14 +5,14 @@ const data: IDemoItem = {
   id: 'smart-home',
   title: 'Smart home',
   thumbnail:
-    'https://cdn.dribbble.com/users/856776/screenshots/6655071/smart_home.png',
+    'https://raw.githubusercontent.com/kishanmundha/rn-desmo/master/screenshots/smart-home/index.png',
   screens: [
     {
       showHeader: false,
       id: 'living-room',
       title: 'Living Room',
       thumbnail:
-        'https://cdn.dribbble.com/users/856776/screenshots/6655071/smart_home.png',
+        'https://raw.githubusercontent.com/kishanmundha/rn-desmo/master/screenshots/smart-home/living-room.png',
       component: LivingRoomScreen,
     },
   ],

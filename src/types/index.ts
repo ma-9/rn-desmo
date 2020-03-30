@@ -34,3 +34,5 @@ export type RootStackParamList = {
   DemoScreen: { item: IDemoScreenItem };
   DemoInfo: { item: IDemoItem }
 };
+
+export type TypeIconFont = 'Ionicons';

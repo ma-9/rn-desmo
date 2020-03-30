@@ -1,6 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  StatusBar,
+  Platform,
+} from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import Thermometer from './components/thermometer.component';
@@ -10,6 +17,13 @@ import TabIcon from './components/tab-icon.component';
 const LivingRoomScreen: React.FC = () => {
   return (
     <View style={styles.root}>
+      {Platform.OS === 'android' && (
+        <StatusBar
+          translucent
+          backgroundColor="transparent"
+          barStyle="dark-content"
+        />
+      )}
       <SafeAreaView />
       <View style={styles.headerContainer}>
         <View style={styles.headerLeft}>
@@ -70,6 +84,11 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: 'rgb(252, 253, 255)',
+    ...Platform.select({
+      android: {
+        paddingTop: StatusBar.currentHeight,
+      },
+    }),
   },
   headerContainer: {
     flexDirection: 'row',
