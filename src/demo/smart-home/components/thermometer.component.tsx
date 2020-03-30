@@ -72,6 +72,7 @@ class Thermometer extends React.Component<IThermometerProps, IState> {
               right: 0,
               left: 0,
               borderRadius: 40,
+              overflow: 'hidden',
             }}>
             <View style={{ flex: 1 }}>
               <View style={{ height: height, backgroundColor: 'rgb(221, 234, 240)' }} />
@@ -121,6 +122,7 @@ class Thermometer extends React.Component<IThermometerProps, IState> {
               right: 0,
               left: 0,
               borderRadius: 40,
+              overflow: 'hidden',
             }}>
             <View style={{ flex: 1, flexDirection: 'row-reverse' }}>
               <View style={{ width, height: '100%', backgroundColor: 'rgb(221, 234, 240)' }} />
