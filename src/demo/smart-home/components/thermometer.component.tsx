@@ -135,7 +135,7 @@ class Thermometer extends React.Component<IThermometerProps, IState> {
         <View style={{ paddingTop: 8, marginLeft: 24, paddingRight: 24 }}>
           <MeasurementScale
             horizontal={this.props.horizontal}
-            scaleColor="rgb(221, 234, 240)"
+            scaleColor="rgb(183, 190, 197)"
             fillColor="rgb(2, 121, 226)"
             minValue={min}
             maxValue={max}

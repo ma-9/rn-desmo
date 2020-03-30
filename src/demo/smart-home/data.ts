@@ -1,5 +1,6 @@
 import { IDemoItem } from '@app/types';
 import LivingRoomScreen from './living-room.screen';
+import CantonmentScreen from './cantonment.screen';
 
 const data: IDemoItem = {
   id: 'smart-home',
@@ -14,6 +15,14 @@ const data: IDemoItem = {
       thumbnail:
         'https://raw.githubusercontent.com/kishanmundha/rn-desmo/master/screenshots/smart-home/living-room.png',
       component: LivingRoomScreen,
+    },
+    {
+      showHeader: false,
+      id: 'cantonment',
+      title: 'Cantonment',
+      thumbnail:
+        'https://raw.githubusercontent.com/kishanmundha/rn-desmo/master/screenshots/smart-home/cantonment.png',
+      component: CantonmentScreen,
     },
   ],
   collaborators: [
