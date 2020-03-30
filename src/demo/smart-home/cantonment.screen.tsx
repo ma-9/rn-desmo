@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import Thermometer from './components/thermometer.component';
 import TabIcon from './components/tab-icon.component';
 import HomeActionSwitch from './components/home-action-switch.component';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const LivingRoomScreen: React.FC = () => {
   return (
@@ -60,7 +61,8 @@ const LivingRoomScreen: React.FC = () => {
           </Text>
         </View>
       </View>
-      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ justifyContent: 'flex-end' }}>
         <View style={{ marginVertical: 16 }}>
           <View style={{ paddingHorizontal: 12, flexDirection: 'row' }}>
             <View style={{ height: 200, flex: 1 }}>
@@ -134,7 +136,7 @@ const LivingRoomScreen: React.FC = () => {
             <Thermometer horizontal value={25} min={16} max={30} />
           </View>
         </View>
-      </View>
+      </ScrollView>
       <View>
         <View style={styles.tabContainer}>
           <TabIcon name="home" active />

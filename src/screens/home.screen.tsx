@@ -8,12 +8,14 @@ import {
   TouchableOpacity,
   StyleSheet,
   Platform,
+  Dimensions,
 } from 'react-native';
 import { getDemoList } from '../demo/data';
 
 import { useTheme, useNavigation } from '@react-navigation/native';
 import { HeaderIconButton } from '@app/components';
 
+const { width } = Dimensions.get('window');
 const demoList = getDemoList();
 
 const HomeScreen: React.FC = () => {
@@ -38,6 +40,7 @@ const HomeScreen: React.FC = () => {
     <View style={styles.root}>
       <SafeAreaView />
       <FlatList
+        style={styles.container}
         data={demoList}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -65,8 +68,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#efefef',
   },
+  container: {
+    padding: 8,
+  },
   itemContainer: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     ...Platform.select({
@@ -83,13 +88,13 @@ const styles = StyleSheet.create({
   },
   itemInnerContainer: {
     backgroundColor: 'white',
-    margin: 16,
+    margin: 8,
     padding: 8,
-    borderRadius: 4,
+    borderRadius: 8,
   },
   thumbnail: {
-    width: 160,
-    height: 160,
+    width: width / 2 - 40,
+    height: width / 2 - 40,
   },
   title: {
     textAlign: 'center',
