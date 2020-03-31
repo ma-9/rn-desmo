@@ -11,7 +11,7 @@ import AuthenticationSection from './components/authentication-section';
 import Header from './components/header';
 import Footer from './components/footer';
 
-const LivingRoomScreen: React.FC = () => {
+const SignInScreen: React.FC = () => {
   return (
     <ImageBackground
       source={require('./assets/singin_background.png')}
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LivingRoomScreen;
+export default SignInScreen;
