@@ -6,6 +6,9 @@ import {
   TextInput,
   ImageBackground,
   KeyboardAvoidingView,
+  StatusBar,
+  Platform,
+  SafeAreaView,
 } from 'react-native';
 
 import AuthenticationSection from './components/authentication-section';
@@ -17,6 +20,14 @@ const SignUpScreen: React.FC = () => {
     <ImageBackground
       source={require('./assets/signup_background.png')}
       style={styles.root}>
+      {Platform.OS === 'android' && (
+        <StatusBar
+          translucent
+          backgroundColor="transparent"
+          barStyle="dark-content"
+        />
+      )}
+      <SafeAreaView />
       <Header name="chevron-left" color="white" />
       <View style={styles.heading}>
         <Text style={styles.title}>Create</Text>
@@ -53,6 +64,11 @@ const SignUpScreen: React.FC = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    ...Platform.select({
+      android: {
+        paddingTop: StatusBar.currentHeight,
+      },
+    }),
   },
   heading: {
     paddingLeft: 40,

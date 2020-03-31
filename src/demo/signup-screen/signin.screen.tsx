@@ -5,6 +5,9 @@ import {
   Text,
   TextInput,
   ImageBackground,
+  StatusBar,
+  Platform,
+  SafeAreaView,
   KeyboardAvoidingView,
 } from 'react-native';
 
@@ -17,6 +20,14 @@ const SignInScreen: React.FC = () => {
     <ImageBackground
       source={require('./assets/singin_background.png')}
       style={styles.root}>
+      {Platform.OS === 'android' && (
+        <StatusBar
+          translucent
+          backgroundColor="transparent"
+          barStyle="dark-content"
+        />
+      )}
+      <SafeAreaView />
       <Header name="chevron-left" color="white" />
       <View style={styles.heading}>
         <Text style={styles.title}>Welcome</Text>
@@ -48,6 +59,11 @@ const SignInScreen: React.FC = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    ...Platform.select({
+      android: {
+        paddingTop: StatusBar.currentHeight,
+      },
+    }),
   },
   heading: {
     paddingLeft: 40,
