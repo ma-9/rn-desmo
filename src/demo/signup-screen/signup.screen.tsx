@@ -5,13 +5,14 @@ import {
   Text,
   TextInput,
   ImageBackground,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import AuthenticationSection from './components/authentication-section';
 import Header from './components/header';
 import Footer from './components/footer';
 
-const LivingRoomScreen: React.FC = () => {
+const SignUpScreen: React.FC = () => {
   return (
     <ImageBackground
       source={require('./assets/signup_background.png')}
@@ -21,7 +22,7 @@ const LivingRoomScreen: React.FC = () => {
         <Text style={styles.title}>Create</Text>
         <Text style={styles.title}>Account</Text>
       </View>
-      <View style={styles.inputSection}>
+      <KeyboardAvoidingView style={styles.inputSection}>
         <TextInput
           style={styles.textInput}
           placeholderTextColor="white"
@@ -40,7 +41,7 @@ const LivingRoomScreen: React.FC = () => {
           textContentType="password"
           secureTextEntry={true}
         />
-      </View>
+      </KeyboardAvoidingView>
       <View style={styles.actionContainer}>
         <AuthenticationSection color="white" label="Sign Up" />
       </View>
@@ -78,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LivingRoomScreen;
+export default SignUpScreen;
