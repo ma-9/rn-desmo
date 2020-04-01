@@ -72,10 +72,11 @@ const styles = StyleSheet.create({
   },
   heading: {
     paddingLeft: 40,
-    paddingTop: 60,
+    paddingTop: 40,
+    paddingBottom: 10,
   },
   title: {
-    fontSize: 40,
+    fontSize: 36,
     color: 'white',
   },
   inputSection: {
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
   },
   actionContainer: {
     padding: 35,
-    marginTop: 40,
+    marginTop: 70,
     marginBottom: 20,
   },
 });
