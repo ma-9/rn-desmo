@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  PixelRatio,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 interface IAuthSectionProps {
@@ -22,19 +28,20 @@ const AuthenticationSection: React.FC<IAuthSectionProps> = props => {
 
 const styles = StyleSheet.create({
   root: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginVertical: PixelRatio.get() * 5,
   },
   labelTag: {
-    fontSize: 26,
+    fontSize: PixelRatio.get() * 12,
     fontWeight: 'bold',
   },
   nextButton: {
     backgroundColor: 'purple',
-    padding: 30,
-    borderRadius: 50,
+    height: 80,
+    width: 80,
+    borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },

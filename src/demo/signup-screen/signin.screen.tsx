@@ -9,6 +9,7 @@ import {
   Platform,
   SafeAreaView,
   KeyboardAvoidingView,
+  PixelRatio,
 } from 'react-native';
 
 import AuthenticationSection from './components/authentication-section';
@@ -28,36 +29,48 @@ const SignInScreen: React.FC = () => {
         />
       )}
       <SafeAreaView />
-      <Header name="chevron-left" color="white" />
-      <View style={styles.heading}>
-        <Text style={styles.title}>Welcome</Text>
-        <Text style={styles.title}>Back</Text>
+      <View style={styles.appbar}>
+        <Header name="chevron-left" color="white" />
       </View>
-      <KeyboardAvoidingView style={styles.inputSection}>
-        <TextInput
-          style={styles.textInput}
-          placeholderTextColor="grey"
-          textContentType="emailAddress"
-          placeholder="Email"
-        />
-        <TextInput
-          textContentType="password"
-          secureTextEntry={true}
-          style={styles.textInput}
-          placeholderTextColor="grey"
-          placeholder="Password"
-        />
-      </KeyboardAvoidingView>
-      <View style={styles.actionContainer}>
-        <AuthenticationSection color="black" label="Sign in" />
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.title}>Welcome</Text>
+          <Text style={styles.title}>Back</Text>
+        </View>
+        <View style={styles.inputContainer}>
+          <KeyboardAvoidingView>
+            <TextInput
+              style={styles.textInput}
+              placeholderTextColor="grey"
+              textContentType="emailAddress"
+              placeholder="Email"
+            />
+          </KeyboardAvoidingView>
+          <KeyboardAvoidingView>
+            <TextInput
+              textContentType="password"
+              secureTextEntry={true}
+              style={styles.textInput}
+              placeholderTextColor="grey"
+              placeholder="Password"
+            />
+          </KeyboardAvoidingView>
+        </View>
+        <View>
+          <AuthenticationSection color="black" label="Sign in" />
+        </View>
       </View>
-      <Footer label="Signup" forgotPasswordLink color="black" />
+      <View style={styles.footer}>
+        <Footer label="Signup" forgotPasswordLink color="black" />
+      </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   root: {
+    display: 'flex',
+    justifyContent: 'space-between',
     flex: 1,
     ...Platform.select({
       android: {
@@ -65,28 +78,31 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  heading: {
-    paddingLeft: 40,
-    paddingTop: 60,
-  },
   title: {
-    fontSize: 40,
+    fontSize: PixelRatio.get() * 13,
     color: 'white',
   },
-  inputSection: {
-    marginTop: 120,
-    paddingHorizontal: 40,
-  },
   textInput: {
-    marginTop: 30,
-    backgroundColor: 'transparent',
-    borderBottomWidth: 1,
-    borderColor: 'grey',
-    fontSize: 20,
+    borderBottomWidth: 0.3,
+    borderBottomColor: 'grey',
+    fontSize: PixelRatio.get() * 8,
+    paddingVertical: PixelRatio.get() * 8,
   },
-  actionContainer: {
-    padding: 35,
-    marginBottom: 20,
+  inputContainer: {
+    paddingTop: PixelRatio.get() * 60,
+    paddingBottom: PixelRatio.get() * 10,
+  },
+  container: {
+    paddingHorizontal: PixelRatio.get() * 10,
+    paddingVertical: PixelRatio.get() * 20,
+    flex: 1,
+  },
+  appbar: {
+    paddingHorizontal: PixelRatio.get() * 5,
+  },
+  footer: {
+    paddingHorizontal: PixelRatio.get() * 10,
+    paddingVertical: PixelRatio.get() * 5,
   },
 });
 

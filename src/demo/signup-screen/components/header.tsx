@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, PixelRatio } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 interface IHeaderProps {
@@ -19,7 +19,8 @@ const Header: React.FC<IHeaderProps> = props => {
 
 const styles = StyleSheet.create({
   root: {
-    padding: 10,
+    justifyContent: 'center',
+    height: PixelRatio.get() * 15,
   },
 });
 

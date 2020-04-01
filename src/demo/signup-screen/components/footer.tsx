@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, PixelRatio } from 'react-native';
 
 interface IFooterProps {
   forgotPasswordLink?: boolean;
@@ -22,11 +22,10 @@ const Footer: React.FC<IFooterProps> = props => {
 
 const styles = StyleSheet.create({
   footer: {
-    display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    paddingHorizontal: 40,
+    height: PixelRatio.get() * 15,
   },
   title: {
     fontSize: 16,
