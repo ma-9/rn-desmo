@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
     paddingVertical: PixelRatio.get() * 8,
   },
   inputContainer: {
-    paddingVertical: PixelRatio.get() * 20,
+    paddingVertical: PixelRatio.get() * 10,
   },
   container: {
+    justifyContent: 'space-between',
     paddingHorizontal: PixelRatio.get() * 10,
-    paddingVertical: PixelRatio.get() * 20,
     flex: 1,
   },
   appbar: {

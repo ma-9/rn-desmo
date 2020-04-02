@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
     paddingVertical: PixelRatio.get() * 8,
   },
   inputContainer: {
-    paddingTop: PixelRatio.get() * 60,
+    paddingTop: PixelRatio.get() * 40,
     paddingBottom: PixelRatio.get() * 10,
   },
   container: {
+    justifyContent: 'space-between',
     paddingHorizontal: PixelRatio.get() * 10,
-    paddingVertical: PixelRatio.get() * 20,
     flex: 1,
   },
   appbar: {
