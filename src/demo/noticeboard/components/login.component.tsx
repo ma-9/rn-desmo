@@ -153,6 +153,7 @@ const styles = StyleSheet.create({
     width: '50%',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     borderRadius: 30,
     paddingVertical: PixelRatio.get() * 4,
     paddingHorizontal: PixelRatio.get() * 10,
@@ -161,7 +162,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: PixelRatio.get() * 8,
     fontWeight: 'bold',
-    paddingRight: PixelRatio.get() * 13,
   },
 });
 

@@ -7,6 +7,7 @@ import {
   Platform,
   View,
   PixelRatio,
+  SafeAreaView,
 } from 'react-native';
 
 // Importing Components
@@ -23,11 +24,11 @@ const loginscreen = () => {
       {Platform.OS === 'android' && (
         <StatusBar
           translucent
-          backgroundColor="#4CAF50"
+          backgroundColor="transparent"
           barStyle="dark-content"
         />
       )}
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.title}>
           <Icon name="laptop" size={30} color="#4CAF50" />
           <Text style={styles.noticeText}> notice</Text>
@@ -42,7 +43,7 @@ const loginscreen = () => {
             <Text style={styles.footerLink}> SignUp </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };

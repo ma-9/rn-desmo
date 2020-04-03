@@ -27,12 +27,21 @@ export interface IDemoItem {
   references: IReferences[];
 }
 
+export interface INotices {
+  id: string;
+  imageUrl: string;
+  title: string;
+  arrivedTime: string;
+  message: string;
+  unreadCount: number;
+}
+
 export type RootStackParamList = {
   Home: {};
   About: {};
   DemoScreenList: { item: IDemoItem };
   DemoScreen: { item: IDemoScreenItem };
-  DemoInfo: { item: IDemoItem }
+  DemoInfo: { item: IDemoItem };
 };
 
 export type TypeIconFont = 'Ionicons';
