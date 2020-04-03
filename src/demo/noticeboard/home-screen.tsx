@@ -16,6 +16,15 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import TabContainer from './components/tabs.container';
 import NoticeComponent from './components/notice.component';
 
+// Importing Colors
+import {
+  whiteColor,
+  SecondaryColorOpacity,
+  PrimaryColor,
+  ThemeColor,
+  SecondaryColor,
+} from './colors';
+
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.root}>
@@ -28,21 +37,24 @@ const HomeScreen = () => {
       )}
       <View style={styles.iconContainer}>
         <TouchableOpacity>
-          <Icon name="search" color="rgba(127,127,127,0.5)" size={30} />
+          <Icon name="search" color={SecondaryColorOpacity} size={30} />
         </TouchableOpacity>
       </View>
       <ScrollView>
         <View style={styles.noticeContainer}>
-          <NoticeComponent />
+          <NoticeComponent
+            PrimaryColor={PrimaryColor}
+            SecondaryColor={SecondaryColor}
+          />
         </View>
       </ScrollView>
       <View style={styles.floatingBtnContainer}>
         <TouchableOpacity style={styles.floatingBtn}>
-          <FeatherIcon name="plus" color="white" size={40} />
+          <FeatherIcon name="plus" color={whiteColor} size={40} />
         </TouchableOpacity>
       </View>
-      <View style={styles.tabsContainer}>
-        <TabContainer />
+      <View>
+        <TabContainer ThemeColor={ThemeColor} SecondaryColor={SecondaryColor} />
       </View>
     </SafeAreaView>
   );
@@ -63,9 +75,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingHorizontal: PixelRatio.get() * 5,
   },
-  tabsContainer: {
-    // backgroundColor: 'wheat',
-  },
   noticeContainer: {
     paddingHorizontal: PixelRatio.get() * 5,
   },
@@ -81,7 +90,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgb(97,184,101)',
+    backgroundColor: PrimaryColor,
   },
 });
 

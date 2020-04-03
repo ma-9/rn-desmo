@@ -10,20 +10,28 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-const LoginComponent = () => {
-  // const [isFocused, setisFocused] = useState(false);
-  // const [isPasswordFocused, setisPasswordFocused] = useState(false);
+interface ILoginComponentProps {
+  ThemeColor: string;
+  PrimaryColor: string;
+  SecondaryColorOpacity: string;
+  whiteColor: string;
+  LoginTextColor: string;
+}
+
+const LoginComponent: React.FC<ILoginComponentProps> = props => {
+  const {
+    LoginTextColor,
+    whiteColor,
+    ThemeColor,
+    SecondaryColorOpacity,
+    PrimaryColor,
+  } = props;
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const usernameHasValue = username !== '';
   const passwordHasValue = password !== '';
-
-  // const handleFocus = () => setisFocused(true);
-  // const handleBlur = () => setisFocused(false);
-
-  // const handlePasswordFocus = () => setisPasswordFocused(true);
-  // const handlePasswordBlur = () => setisPasswordFocused(false);
 
   const handleUsernameChange = e => {
     setUsername(e.target.value);
@@ -36,19 +44,26 @@ const LoginComponent = () => {
   return (
     <View style={styles.root}>
       <View style={styles.title}>
-        <Text style={styles.LoginText}>Login</Text>
-        <Text style={styles.taglineText}>Makes you better</Text>
+        <Text style={[styles.LoginText, { color: LoginTextColor }]}>Login</Text>
+        <Text style={[styles.taglineText, { color: SecondaryColorOpacity }]}>
+          Makes you better
+        </Text>
       </View>
 
       <View style={styles.container}>
-        <KeyboardAvoidingView style={styles.inputContainer}>
-          <Icon name="user" color="rgba(127,127,127,0.5)" size={30} />
+        <KeyboardAvoidingView
+          style={[
+            styles.inputContainer,
+            { borderBottomColor: SecondaryColorOpacity },
+          ]}>
+          <Icon name="user" color={SecondaryColorOpacity} size={30} />
           <Text
             style={[
               styles.labelStyle,
               {
                 top: !usernameHasValue ? 12 : -5,
                 fontSize: !usernameHasValue ? 18 : 14,
+                color: SecondaryColorOpacity,
               },
             ]}>
             username
@@ -61,14 +76,19 @@ const LoginComponent = () => {
             style={styles.textInput}
           />
         </KeyboardAvoidingView>
-        <KeyboardAvoidingView style={styles.inputContainer}>
-          <Icon name="lock" color="rgba(127,127,127,0.5)" size={30} />
+        <KeyboardAvoidingView
+          style={[
+            styles.inputContainer,
+            { borderBottomColor: SecondaryColorOpacity },
+          ]}>
+          <Icon name="lock" color={SecondaryColorOpacity} size={30} />
           <Text
             style={[
               styles.labelStyle,
               {
                 top: !passwordHasValue ? 12 : -5,
                 fontSize: !passwordHasValue ? 18 : 14,
+                color: SecondaryColorOpacity,
               },
             ]}>
             Password
@@ -84,14 +104,17 @@ const LoginComponent = () => {
             style={styles.textInput}
           />
           <TouchableOpacity>
-            <Text style={styles.forgotLink}>Forgot</Text>
+            <Text style={[styles.forgotLink, { color: ThemeColor }]}>
+              Forgot
+            </Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>Login</Text>
-          <Icon name="chevron-right" color="white" size={30} />
+        <TouchableOpacity
+          style={[styles.btn, { backgroundColor: PrimaryColor }]}>
+          <Text style={[styles.btnText, { color: whiteColor }]}>Login</Text>
+          <Icon name="chevron-right" color={whiteColor} size={30} />
         </TouchableOpacity>
       </View>
     </View>
@@ -109,11 +132,9 @@ const styles = StyleSheet.create({
   LoginText: {
     fontSize: PixelRatio.get() * 13,
     fontWeight: '700',
-    color: 'rgb(38,50,56)',
   },
   taglineText: {
     fontWeight: '700',
-    color: 'rgba(127,127,127,0.5)',
     fontSize: PixelRatio.get() * 5,
   },
   container: {
@@ -124,7 +145,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginVertical: PixelRatio.get() * 3,
-    borderBottomColor: 'rgba(127,127,127,0.9)',
     borderBottomWidth: 1,
   },
   textInput: {
@@ -137,11 +157,9 @@ const styles = StyleSheet.create({
     left: 40,
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    color: 'rgba(127,127,127,0.5)',
   },
   forgotLink: {
     textTransform: 'uppercase',
-    color: 'green',
     fontWeight: 'bold',
     marginLeft: PixelRatio.get() * 50,
   },
@@ -149,7 +167,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   btn: {
-    backgroundColor: 'rgb(110,191,115)',
     width: '50%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -159,7 +176,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: PixelRatio.get() * 10,
   },
   btnText: {
-    color: 'white',
     fontSize: PixelRatio.get() * 8,
     fontWeight: 'bold',
   },

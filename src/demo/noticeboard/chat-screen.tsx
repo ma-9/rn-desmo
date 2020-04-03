@@ -13,6 +13,9 @@ import ChatHeader from './components/chat.header';
 import ChatBodyComponent from './components/chat.body';
 import ChatInputComponent from './components/chat.footer';
 
+// Importing Colors
+import { SecondaryColorOpacity, PrimaryColor, SecondaryColor } from './colors';
+
 const ChatScreen = () => {
   return (
     <View style={style.root}>
@@ -24,15 +27,25 @@ const ChatScreen = () => {
         />
       )}
       <View style={style.headerContainer}>
-        <ChatHeader />
+        <ChatHeader
+          SecondaryColor={SecondaryColor}
+          SecondaryColorOpacity={SecondaryColorOpacity}
+        />
       </View>
       <ScrollView>
         <View style={style.bodyContainer}>
-          <ChatBodyComponent />
+          <ChatBodyComponent
+            PrimaryColor={PrimaryColor}
+            SecondaryColor={SecondaryColor}
+            SecondaryColorOpacity={SecondaryColorOpacity}
+          />
         </View>
       </ScrollView>
       <View style={style.footerContainer}>
-        <ChatInputComponent />
+        <ChatInputComponent
+          PrimaryColor={PrimaryColor}
+          SecondaryColor={SecondaryColor}
+        />
       </View>
     </View>
   );

@@ -4,11 +4,20 @@ import { View, Text, StyleSheet, PixelRatio } from 'react-native';
 // Importing Components
 import NotificationMessage from './notice.messages';
 
-const NoticeComponent = () => {
+interface INotificationProps {
+  PrimaryColor: string;
+  SecondaryColor: string;
+}
+
+const NoticeComponent: React.FC<INotificationProps> = props => {
+  const { PrimaryColor, SecondaryColor } = props;
   return (
     <View style={styles.root}>
       <Text style={styles.title}> Notices </Text>
-      <NotificationMessage />
+      <NotificationMessage
+        PrimaryColor={PrimaryColor}
+        SecondaryColor={SecondaryColor}
+      />
     </View>
   );
 };

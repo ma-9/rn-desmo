@@ -1,28 +1,35 @@
 import React from 'react';
 import { View, Text, StyleSheet, PixelRatio, Image } from 'react-native';
 
-const SecondaryColor = 'rgb(127,127,127)';
-const MsgBGColor = 'rgb(97,184,101)';
-const SecondaryColorOpacity = 'rgba(127,127,127,0.5)';
+interface IChatBodyProps {
+  PrimaryColor: string;
+  SecondaryColor: string;
+  SecondaryColorOpacity: string;
+}
 
-const ChatBodyComponent = () => {
+const ChatBodyComponent: React.FC<IChatBodyProps> = props => {
+  const { PrimaryColor, SecondaryColor, SecondaryColorOpacity } = props;
   return (
     <View style={styles.root}>
       <View style={styles.todayContainer}>
-        <Text style={styles.todayText}>Today</Text>
+        <Text style={[styles.todayText, { color: SecondaryColor }]}>Today</Text>
       </View>
       <View>
         <View style={styles.rightContainer}>
-          <Text style={styles.rightText}>
+          <Text style={[styles.rightText, { backgroundColor: PrimaryColor }]}>
             Hello, Shane nice to meet with you.
           </Text>
-          <Text style={styles.timeText}>5:56 PM</Text>
+          <Text style={[styles.timeText, { color: SecondaryColorOpacity }]}>
+            5:56 PM
+          </Text>
         </View>
         <View style={styles.leftContainer}>
-          <Text style={styles.leftText}>
+          <Text style={[styles.leftText, { color: SecondaryColor }]}>
             Can you please send me the pic that you have taken last night?
           </Text>
-          <Text style={styles.timeText}>5:57 PM</Text>
+          <Text style={[styles.timeText, { color: SecondaryColorOpacity }]}>
+            5:57 PM
+          </Text>
         </View>
         <View style={styles.rightContainer}>
           <Image
@@ -32,13 +39,17 @@ const ChatBodyComponent = () => {
             }}
             style={styles.imageContainer}
           />
-          <Text style={styles.timeText}>5:58 PM</Text>
+          <Text style={[styles.timeText, { color: SecondaryColorOpacity }]}>
+            5:58 PM
+          </Text>
         </View>
         <View style={styles.leftContainer}>
-          <Text style={styles.leftText}>
+          <Text style={[styles.leftText, { color: SecondaryColor }]}>
             Thank you very much for sharing with me.
           </Text>
-          <Text style={styles.timeText}>6:56 PM</Text>
+          <Text style={[styles.timeText, { color: SecondaryColorOpacity }]}>
+            6:56 PM
+          </Text>
         </View>
       </View>
     </View>
@@ -55,7 +66,6 @@ const styles = StyleSheet.create({
   todayText: {
     fontSize: PixelRatio.get() * 6,
     fontWeight: 'bold',
-    color: SecondaryColor,
   },
   rightContainer: {
     alignItems: 'flex-end',
@@ -67,7 +77,6 @@ const styles = StyleSheet.create({
     maxWidth: PixelRatio.get() * 90,
   },
   timeText: {
-    color: SecondaryColorOpacity,
     fontWeight: 'bold',
     fontSize: PixelRatio.get() * 4.5,
   },
@@ -77,7 +86,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   rightText: {
-    backgroundColor: MsgBGColor,
     color: 'white',
     padding: PixelRatio.get() * 5,
     borderRadius: 30,
@@ -87,7 +95,6 @@ const styles = StyleSheet.create({
   },
   leftText: {
     backgroundColor: 'white',
-    color: SecondaryColor,
     padding: PixelRatio.get() * 5,
     borderRadius: 30,
     borderBottomLeftRadius: 0,

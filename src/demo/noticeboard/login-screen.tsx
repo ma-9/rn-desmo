@@ -8,13 +8,22 @@ import {
   View,
   PixelRatio,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 // Importing Components
 import LoginComponent from './components/login.component';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+// Importing Colors
+import {
+  LoginTextColor,
+  whiteColor,
+  SecondaryColorOpacity,
+  PrimaryColor,
+  ThemeColor,
+  SecondaryColor,
+} from './colors';
 
 const loginscreen = () => {
   return (
@@ -30,12 +39,18 @@ const loginscreen = () => {
       )}
       <SafeAreaView style={styles.container}>
         <View style={styles.title}>
-          <Icon name="laptop" size={30} color="#4CAF50" />
+          <Icon name="laptop" size={30} color={PrimaryColor} />
           <Text style={styles.noticeText}> notice</Text>
           <Text style={styles.boardText}>board</Text>
         </View>
         <View style={styles.loginComponentContainer}>
-          <LoginComponent />
+          <LoginComponent
+            ThemeColor={ThemeColor}
+            PrimaryColor={PrimaryColor}
+            SecondaryColorOpacity={SecondaryColorOpacity}
+            whiteColor={whiteColor}
+            LoginTextColor={LoginTextColor}
+          />
         </View>
         <View style={styles.footerContainer}>
           <Text style={styles.footerText}> Already have an account? </Text>
@@ -69,14 +84,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   noticeText: {
-    color: 'rgb(127,127,127)',
+    color: SecondaryColor,
     fontSize: PixelRatio.get() * 12,
     fontWeight: '600',
   },
   boardText: {
     fontSize: PixelRatio.get() * 12,
     fontWeight: '700',
-    color: '#4CAF50',
+    color: PrimaryColor,
   },
   loginComponentContainer: {
     paddingVertical: PixelRatio.get() * 15,
@@ -88,12 +103,12 @@ const styles = StyleSheet.create({
     paddingVertical: PixelRatio.get() * 8,
   },
   footerLink: {
-    color: 'green',
+    color: ThemeColor,
     fontWeight: 'bold',
   },
   footerText: {
     fontWeight: 'bold',
-    color: 'rgba(127,127,127,0.8)',
+    color: SecondaryColorOpacity,
   },
 });
 export default loginscreen;

@@ -9,13 +9,17 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-const ChatPrimaryColor = 'rgb(97,184,101)';
-const SecondaryColor = 'rgb(127,127,127)';
+interface IChatBodyProps {
+  PrimaryColor: string;
+  SecondaryColor: string;
+}
 
-const ChatInputComponent = () => {
+const ChatInputComponent: React.FC<IChatBodyProps> = props => {
+  const { PrimaryColor, SecondaryColor } = props;
   return (
     <View style={styles.root}>
-      <TouchableOpacity style={styles.addBtn}>
+      <TouchableOpacity
+        style={[styles.addBtn, { backgroundColor: PrimaryColor }]}>
         <Icon name="plus" color="white" size={20} />
       </TouchableOpacity>
       <View style={styles.inputContainer}>
@@ -49,7 +53,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   addBtn: {
-    backgroundColor: ChatPrimaryColor,
     height: 30,
     width: 30,
     borderRadius: 10,

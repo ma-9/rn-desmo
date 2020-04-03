@@ -8,17 +8,23 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-const SecondaryColor = 'rgba(127,127,127,0.7)';
+interface IChatHeaderProps {
+  SecondaryColor: string;
+  SecondaryColorOpacity: string;
+}
 
-const ChatHeader = () => {
+const ChatHeader: React.FC<IChatHeaderProps> = props => {
+  const { SecondaryColor, SecondaryColorOpacity } = props;
   return (
     <View style={styles.root}>
       <TouchableOpacity>
-        <Icon name="arrow-left" color={SecondaryColor} size={35} />
+        <Icon name="arrow-left" color={SecondaryColorOpacity} size={35} />
       </TouchableOpacity>
-      <Text style={styles.userName}> Shane Martinez </Text>
+      <Text style={[styles.userName, { color: SecondaryColor }]}>
+        Shane Martinez
+      </Text>
       <TouchableOpacity>
-        <Icon name="info" color={SecondaryColor} size={35} />
+        <Icon name="info" color={SecondaryColorOpacity} size={35} />
       </TouchableOpacity>
     </View>
   );
@@ -33,7 +39,6 @@ const styles = StyleSheet.create({
   userName: {
     fontSize: PixelRatio.get() * 7.5,
     fontWeight: 'bold',
-    color: 'grey',
   },
 });
 

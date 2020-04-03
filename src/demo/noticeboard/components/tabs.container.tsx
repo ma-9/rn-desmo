@@ -8,11 +8,14 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const PrimaryColor = 'green';
-const SecondaryColor = 'rgb(127,127,127)';
+interface ITabContainerProps {
+  ThemeColor: string;
+  SecondaryColor: string;
+}
 
-const TabContainer = () => {
+const TabContainer: React.FC<ITabContainerProps> = props => {
   const [step, setStep] = useState(1);
+  const { ThemeColor, SecondaryColor } = props;
 
   return (
     <View style={styles.root}>
@@ -20,8 +23,10 @@ const TabContainer = () => {
         <TouchableOpacity
           onPress={() => setStep(1)}
           style={styles.iconContainer}>
-          <Icon name="desktop" color={PrimaryColor} size={28} />
-          <Text style={styles.activeDotContainer}>.</Text>
+          <Icon name="desktop" color={ThemeColor} size={28} />
+          <Text style={[styles.activeDotContainer, { color: ThemeColor }]}>
+            .
+          </Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
@@ -34,8 +39,10 @@ const TabContainer = () => {
         <TouchableOpacity
           onPress={() => setStep(2)}
           style={styles.iconContainer}>
-          <Icon name="bell" color={PrimaryColor} size={28} />
-          <Text style={styles.activeDotContainer}>.</Text>
+          <Icon name="bell" color={ThemeColor} size={28} />
+          <Text style={[styles.activeDotContainer, { color: ThemeColor }]}>
+            .
+          </Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
@@ -48,8 +55,10 @@ const TabContainer = () => {
         <TouchableOpacity
           onPress={() => setStep(3)}
           style={styles.iconContainer}>
-          <Icon name="cog" color={PrimaryColor} size={28} />
-          <Text style={styles.activeDotContainer}>.</Text>
+          <Icon name="cog" color={ThemeColor} size={28} />
+          <Text style={[styles.activeDotContainer, { color: ThemeColor }]}>
+            .
+          </Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
@@ -76,7 +85,6 @@ const styles = StyleSheet.create({
   activeDotContainer: {
     marginTop: PixelRatio.get() * -16,
     fontSize: PixelRatio.get() * 20,
-    color: PrimaryColor,
   },
 });
 

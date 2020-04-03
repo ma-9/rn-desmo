@@ -9,12 +9,16 @@ import {
 } from 'react-native';
 
 // Importing Notice from external file (backend)
-import Notices from './notices';
+import Notices from '../data/notices';
 
-const UnreadMsgBGColor = 'rgb(97,184,101)';
-const SecondaryColor = 'rgb(127,127,127)';
+interface INotificationMessageProps {
+  PrimaryColor: string;
+  SecondaryColor: string;
+}
 
-const NotificationMessage = () => {
+const NotificationMessage: React.FC<INotificationMessageProps> = props => {
+  const { PrimaryColor, SecondaryColor } = props;
+
   return (
     <View style={style.root}>
       {Notices.map(data => (
@@ -26,13 +30,22 @@ const NotificationMessage = () => {
             <View style={style.MessageContainer}>
               <View style={style.MessageHeader}>
                 <Text style={style.msgTItle}> {data.title} </Text>
-                <Text style={style.arrivedTime}> {data.arrivedTime} </Text>
+                <Text style={[style.arrivedTime, { color: SecondaryColor }]}>
+                  {' '}
+                  {data.arrivedTime}{' '}
+                </Text>
               </View>
               <View style={style.MessageBody}>
-                <Text style={style.bodyText} numberOfLines={2}>
+                <Text
+                  style={[style.bodyText, { color: SecondaryColor }]}
+                  numberOfLines={2}>
                   {data.message}
                 </Text>
-                <View style={style.unreadMsgSign}>
+                <View
+                  style={[
+                    style.unreadMsgSign,
+                    { backgroundColor: PrimaryColor },
+                  ]}>
                   <Text style={style.unreadCount}> {data.unreadCount} </Text>
                 </View>
               </View>
@@ -72,7 +85,6 @@ const style = StyleSheet.create({
     fontSize: PixelRatio.get() * 7,
   },
   arrivedTime: {
-    color: SecondaryColor,
     fontWeight: 'bold',
   },
   MessageBody: {
@@ -81,14 +93,12 @@ const style = StyleSheet.create({
   },
   bodyText: {
     flex: 6,
-    color: SecondaryColor,
   },
   unreadMsgSign: {
     flex: 0.8,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: UnreadMsgBGColor,
     borderRadius: 10,
     height: 30,
   },
