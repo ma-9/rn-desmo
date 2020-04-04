@@ -1,4 +1,11 @@
-import { INotices } from '@app/types';
+interface INotices {
+  id: string;
+  imageUrl: string;
+  title: string;
+  arrivedTime: string;
+  message: string;
+  unreadCount: number;
+}
 
 const notices: INotices[] = [
   {

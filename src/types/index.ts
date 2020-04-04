@@ -27,15 +27,6 @@ export interface IDemoItem {
   references: IReferences[];
 }
 
-export interface INotices {
-  id: string;
-  imageUrl: string;
-  title: string;
-  arrivedTime: string;
-  message: string;
-  unreadCount: number;
-}
-
 export type RootStackParamList = {
   Home: {};
   About: {};

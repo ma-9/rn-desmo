@@ -11,9 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-// Importing Components
-import LoginComponent from './components/login.component';
+import { TextField } from 'react-native-material-textfield';
 
 // Importing Colors
 import {
@@ -43,14 +41,42 @@ const loginscreen = () => {
           <Text style={styles.noticeText}> notice</Text>
           <Text style={styles.boardText}>board</Text>
         </View>
-        <View style={styles.loginComponentContainer}>
-          <LoginComponent
-            ThemeColor={ThemeColor}
-            PrimaryColor={PrimaryColor}
-            SecondaryColorOpacity={SecondaryColorOpacity}
-            whiteColor={whiteColor}
-            LoginTextColor={LoginTextColor}
-          />
+        <View>
+          <View style={styles.LoginTitle}>
+            <Text style={[styles.LoginText, { color: LoginTextColor }]}>
+              Login
+            </Text>
+            <Text
+              style={[styles.taglineText, { color: SecondaryColorOpacity }]}>
+              Makes you better
+            </Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextField
+              style={styles.textInput}
+              label="USERNAME"
+              labelFontSize={15}
+              activeLineWidth={0}
+              tintColor={SecondaryColor}
+              animationDuration={100}
+            />
+            <TextField
+              style={styles.textInput}
+              label="PASSWORD"
+              secureTextEntry={true}
+              labelFontSize={15}
+              activeLineWidth={0}
+              tintColor={SecondaryColor}
+              animationDuration={100}
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={[styles.btn, { backgroundColor: PrimaryColor }]}>
+              <Text style={[styles.btnText, { color: whiteColor }]}>Login</Text>
+              <Icon name="chevron-right" color={whiteColor} size={30} />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.footerContainer}>
           <Text style={styles.footerText}> Already have an account? </Text>
@@ -74,10 +100,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     paddingHorizontal: PixelRatio.get() * 12,
   },
+  // Title of the Page
   title: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -93,14 +119,40 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: PrimaryColor,
   },
-  loginComponentContainer: {
-    paddingVertical: PixelRatio.get() * 15,
+  LoginTitle: {
+    paddingVertical: PixelRatio.get() * 5,
   },
+  LoginText: {
+    fontSize: PixelRatio.get() * 13,
+    fontWeight: '700',
+  },
+  taglineText: {
+    fontWeight: '700',
+    fontSize: PixelRatio.get() * 5,
+  },
+  // Login Button CSS
+  buttonContainer: {
+    alignItems: 'flex-end',
+  },
+  btn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderRadius: 30,
+    paddingVertical: PixelRatio.get() * 4,
+    paddingHorizontal: PixelRatio.get() * 4,
+  },
+  btnText: {
+    fontSize: PixelRatio.get() * 8,
+    fontWeight: 'bold',
+    marginLeft: PixelRatio.get() * 2,
+    marginRight: PixelRatio.get() * 15,
+  },
+  // Footer CSS
   footerContainer: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingVertical: PixelRatio.get() * 8,
   },
   footerLink: {
     color: ThemeColor,
@@ -109,6 +161,14 @@ const styles = StyleSheet.create({
   footerText: {
     fontWeight: 'bold',
     color: SecondaryColorOpacity,
+  },
+
+  // TextInput Css
+  inputContainer: {
+    marginVertical: PixelRatio.get() * 5,
+  },
+  textInput: {
+    marginVertical: 0,
   },
 });
 export default loginscreen;
